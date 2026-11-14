@@ -23,7 +23,7 @@ def yahoo(key,symbol,unit):
   put(key,pts,'Yahoo Finance（非公式取得）',url,unit,'15分足（配信遅延あり）')
  except Exception as e: print(key,type(e).__name__,str(e)[:100])
 for k,s in [('us2','DGS2'),('us10','DGS10'),('real10','DFII10'),('vix','VIXCLS')]:fred(k,s)
-for k,s,u in [('jp2','JP2Y'),('jp10','JP10Y'),('dxy','DX-Y.NYB','指数'),('wti','CL=F','USD/bbl'),('brent','BZ=F','USD/bbl')]:
+for k,s,u in [('jp2','JP2Y','%'),('jp10','JP10Y','%'),('dxy','DX-Y.NYB','指数'),('wti','CL=F','USD/bbl'),('brent','BZ=F','USD/bbl')]:
  if k.startswith('jp'):continue # Reliable public 15-min Japan government yield source not confirmed
  yahoo(k,s,u)
 # Spread derived only from matching observed dates; otherwise no value.
